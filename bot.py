@@ -1,5 +1,5 @@
 from telegram.ext import *
-from .config import config
+import config
 from pokedex import pokedex
 import json
 def start_command(update,context):
@@ -17,7 +17,7 @@ def message_response(update,context):
 
     text = str(update.message.text).lower()
     username = update.message.chat.first_name
-
+    print(username)
     if text in ("hi","hello","yo","whats up"):
         response = (f"<b>How are you doing {username}.Enter a pokemon name or id to get info </b>")
     else:
