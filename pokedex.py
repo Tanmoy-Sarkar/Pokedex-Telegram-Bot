@@ -24,12 +24,24 @@ def pokedex(id_name):
         
         output += f"<b>Types:</b> {str(types)} \n"
         all_moves=information['moves']
+
         moves = ""
         #getting 5 moves of the pokemon
-        for i in range(6):
-            moves += f"<b>{i+1}:</b> {all_moves[i]['move']['name']} \n"
-        output += f"<b>Moves:</b> {moves} \n"
+        if len(all_moves) < 6:
+            for i in range(len(all_moves)):
+                moves += f"<b>{i+1}:</b> {all_moves[i]['move']['name']} \n"
+        else:
+            for i in range(6):
+                moves += f"<b>{i+1}:</b> {all_moves[i]['move']['name']} \n"
+        output += f"<b>Moves:\n</b> {moves} \n"
+
+        if information['id'] <= 890:
+            photo_url = f"https://pokeres.bastionbot.org/images/pokemon/{information['id']}.png"
+        else:
+            photo_url = None
+
     except json.decoder.JSONDecodeError:
-        output = "sorry couldn't understand you.Can you pleae enter a pokemon name or ID"
-    return output
+        output = None
+        photo_url = None
+    return output,photo_url
 
