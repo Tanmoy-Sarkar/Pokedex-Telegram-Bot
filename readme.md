@@ -9,7 +9,7 @@
 This is a Pokedex bot that gives information about a particular pokemon when the name or ID of the pokemon is given. Currently, it supports up to 890 pokemon.
 ## Creating Bot
 Go to <a href="https://t.me/botfather" target="_blank">botfather</a> for creating new bot. Copy the API token from there.
-<img src="assets/bot_create.png" height="500px">
+<img src="assets/bot_create.png" height="600px">
 
 
 ## Installation
