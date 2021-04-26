@@ -1,5 +1,5 @@
 from telegram.ext import *
-import config
+import config_file
 from pokedex import pokedex
 import json
 def start_command(update,context):
@@ -34,7 +34,7 @@ def message_response(update,context):
     update.message.reply_text(response,parse_mode='HTML')
 
 def main():
-    updater = Updater(config.api_key,use_context = True)
+    updater = Updater(config_file.api_key,use_context = True)
     dp = updater.dispatcher
     dp.add_handler(CommandHandler("start",start_command))
     dp.add_handler(CommandHandler("help",help_command))
