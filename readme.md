@@ -26,9 +26,17 @@ pip install requests
 ```bash
 git clone https://github.com/Tanmoy-Sarkar/Pokedex-Telegram-Bot.git
 ```
+Make a config.py file with API key earlier stored
+```python
+api_key = ""
+```
 
 Go to the directory where the folder is located
+```bash
+git clone https://github.com/Tanmoy-Sarkar/Pokedex-Telegram-Bot.git
+```
 
+Run from the command line
 ```bash
 python bot.py
 ```
