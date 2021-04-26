@@ -1,5 +1,5 @@
 from telegram.ext import *
-from .config import config
+import config
 from pokedex import pokedex
 import json
 def start_command(update,context):
