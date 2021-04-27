@@ -45,4 +45,5 @@ def main():
 
 print("Bot started running")
 
-main()
+if __name__ == "__main__":
+    main()
