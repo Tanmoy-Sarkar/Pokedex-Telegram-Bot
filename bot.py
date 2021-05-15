@@ -2,17 +2,18 @@ from telegram.ext import *
 import config_file
 from pokedex import pokedex
 import json
+#start command
 def start_command(update,context):
     username = update.message.chat.first_name
     update.message.reply_text(f"How are you {username}.Welcome to the pokemon world.Enter a valid pokemon name or ID (upto 890) to get started")
-
+#error handling
 def error(update,context):
     print(f"{update} caused error {context.error}")
-
+#help command
 def help_command(update,context):
     
     update.message.reply_text("Please Enter a valid pokemon name or ID (upto 890) to get info")
-
+#message response
 def message_response(update,context):
 
     text = str(update.message.text).lower()
@@ -28,18 +29,17 @@ def message_response(update,context):
         else:
             response = "Sorry didn't understand you. Please Enter a <b>valid</b> pokemon name or <b>ID (upto 890)</b> to get info"
 
-
-
-    
     update.message.reply_text(response,parse_mode='HTML')
 
 def main():
     updater = Updater(config_file.api_key,use_context = True)
     dp = updater.dispatcher
+    #adding all the command handler,message handler and error handler
     dp.add_handler(CommandHandler("start",start_command))
     dp.add_handler(CommandHandler("help",help_command))
     dp.add_handler(MessageHandler(Filters.text,message_response))
     dp.add_error_handler(error)
+    #look for update every 3 seconds
     updater.start_polling(3)
     updater.idle()
 
